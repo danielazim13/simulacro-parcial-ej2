@@ -119,8 +119,37 @@ class NotasModel{
     }
 
     postNota = (data) => {
-        const nuevaNota = this.notas.push(data)
+        data.id = this.notas.length + 1
+        this.notas.push(data)
         return data
+    }
+
+    putNota = (id, data) => {
+        data.id = id
+        const index = this.notas.findIndex((nota) => nota.id == id)
+        this.notas.splice(index, 1, data)
+        return data
+    }
+
+    patchNota = (id, data) => {
+        const index = this.notas.findIndex((n) => n.id == id)
+        const oldNota = this.notas[index]
+        console.log("old: ", oldNota);
+        const newNota = { ...oldNota, ...data}
+        console.log("new: ", newNota);
+        this.notas.splice(index, 1, newNota)
+        return newNota
+    }
+
+    deleteNota = (id) => {
+        const index = this.notas.findIndex((nota) => nota.id == id)
+        if(index === -1){
+            throw new Error("El ID no existe!!!")
+        } else {
+            this.notas.splice(index, 1)
+        }
+
+        return "OK."
     }
 
 

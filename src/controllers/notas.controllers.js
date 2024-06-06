@@ -52,6 +52,19 @@ class NotasController {
         const nota = this.services.postNota(nuevaNota)
         res.send(nota)
     }
+
+    putNota = (req, res) => {
+        const {id} = req.params
+        const nuevaNota = req.body
+        const nota = this.services.putNota(id, nuevaNota)
+        res.send(nota)
+    }
+
+    deleteNota = (req, res) => {
+        const {id} = req.params
+        const nota = this.services.deleteNota(id)
+        res.send(nota)
+    }
 }
 
 export default NotasController

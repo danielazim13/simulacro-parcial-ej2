@@ -17,6 +17,8 @@ class Router {
         this.router.get("/notas/notaMasAlta", this.controller.getNotaMasAlta)
         this.router.get("/notas/notaMasBaja", this.controller.getNotaMasBaja)
         this.router.post("/notas", this.controller.postNota)
+        this.router.put("/notas/:id", this.controller.putNota)
+        this.router.delete("/notas/:id", this.controller.deleteNota)
 
         return this.router
     }

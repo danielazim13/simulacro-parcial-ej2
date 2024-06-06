@@ -44,6 +44,16 @@ class NotasServices{
         const nuevaNota = this.model.postNota(nota)
         return nuevaNota
     }
+
+    putNota = (id, data) => {
+        const nuevaNota = this.model.putNota(id, data)
+        return nuevaNota
+    }
+
+    deleteNota = (id) => {
+        const nota = this.model.deleteNota(id)
+        return nota
+    }
     
 }
 
